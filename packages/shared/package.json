@@ -19,7 +19,7 @@
     "./enums": {
       "types": "./dist/enums/index.d.ts",
       "require": "./dist/enums/index.js",
-      "import": "./dist/enums/index.mjs",
+      "import": "./dist/enums/index.mjs"
     },
      "./types": {
       "types": "./dist/types/index.d.ts",
@@ -45,7 +45,7 @@
     "access": "private"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
+    "typescript": "^5.8.2",
     "tsup": "^8.0.0"
   }
 }
