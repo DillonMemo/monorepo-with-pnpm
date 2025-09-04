@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import Link from "next/link"
-import { useState } from "react"
+import Link from 'next/link'
+import { useState } from 'react'
 
 interface GameItem {
   id: string
@@ -11,9 +11,9 @@ interface GameItem {
 
 const gameItems: GameItem[] = [
   {
-    id: "CHAMPION-STRIKE",
-    href: "/game-detail?game=CHAMPION-STRIKE",
-    imgSrc: "/images/game-icons/championStrike-side-bar-img.png",
+    id: 'CHAMPION-STRIKE',
+    href: '/game-detail?game=CHAMPION-STRIKE',
+    imgSrc: '/images/game-icons/championStrike-side-bar-img.png',
   },
 ]
 
@@ -25,7 +25,7 @@ export default function GameSidebar() {
       <div
         className={`fixed left-0 z-10 flex flex-col gap-4 border-r border-[#222] bg-[#0b0b0c] p-4 transition-all duration-300 
           top-0 md:top-[70px] h-screen md:h-[calc(100%-70px)] w-[72px]
-          ${isOpen ? "translate-x-0" : "-translate-x-[calc(100%-5px)]"}`}
+          ${isOpen ? 'translate-x-0' : '-translate-x-[calc(100%-5px)]'}`}
       >
         <Link
           href="/ai-main"

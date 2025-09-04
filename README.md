@@ -1,6 +1,10 @@
 # Run
 
-pnpm 모노레포 환경 베이직 예제
+pnpm 모노레포 환경
+
+- Back-End: NestJS
+- Front-End: Next.js
+- BlockChain: Contract
 
 ```bash
 # package install
@@ -32,6 +36,7 @@ fortem/
 ## 🚀 빠른 시작
 
 ### 개발 환경 설정
+
 ```bash
 # 1. 저장소 클론
 git clone https://github.com/DillonMemo/monorepo-with-pnpm
@@ -45,6 +50,7 @@ pnpm dev
 ```
 
 ### 개별 서비스 실행
+
 ```bash
 # API 서버만 실행
 pnpm dev:api
@@ -59,6 +65,7 @@ pnpm dev:batch
 ## 🔧 빌드 & 배포
 
 ### 빌드 순서 (중요!)
+
 ```bash
 # 전체 빌드 (올바른 순서로 자동 실행)
 pnpm build
@@ -72,6 +79,7 @@ pnpm build:web       # 3. 웹 앱
 ## 📦 워크스페이스 의존성 관리
 
 ### ✅ 올바른 패키지 설치
+
 ```bash
 # 루트에서 워크스페이스 단위로 설치
 pnpm add package-name --filter api
@@ -83,6 +91,7 @@ pnpm add package-name
 ```
 
 ### ❌ 하지 말아야 할 것
+
 ```bash
 # 개별 앱에서 직접 설치 금지
 cd apps/api && pnpm add package-name  # ❌
@@ -91,6 +100,7 @@ cd apps/api && pnpm add package-name  # ❌
 ## 🔄 Git 워크플로우 & 커밋 컨벤션
 
 ### 브랜치 생성 & 개발 시작
+
 ```bash
 git checkout main
 git pull origin main
@@ -98,6 +108,7 @@ git checkout -b feature/your-feature-name
 ```
 
 ### Conventional Commits
+
 ```bash
 # 커밋 타입
 feat:     ✨ 새로운 기능
@@ -119,10 +130,13 @@ git commit -m "docs: update API documentation"
 ```
 
 ### 릴리즈 생성
+
 ```bash
 yarn release
 ```
+
 자동으로 실행되는 과정:
+
 - Conventional Commits 기반 버전 계산
 - CHANGELOG.md 자동 생성/업데이트
 - Git 태그 생성 (v0.1.2 형태)
@@ -132,25 +146,29 @@ yarn release
 ## 🛠️ 개발 시 주의사항
 
 ### 빌드 순서 준수
+
 - `shared` → `core` → `apps` 순서로 빌드해야 함
 - `yarn dev` 명령어가 올바른 순서로 자동 실행
 
 ### 패키지 간 Import 규칙
+
 ```typescript
 // ✅ 올바른 import (workspace 이름 사용)
-import { SomeType } from '@fortem/shared';
-import { DatabaseModule } from '@fortem/core';
+import { SomeType } from '@fortem/shared'
+import { DatabaseModule } from '@fortem/core'
 
 // ❌ 상대 경로 사용 금지
-import { SomeType } from '../../packages/shared/src';
+import { SomeType } from '../../packages/shared/src'
 ```
 
 ### 코드 변경 시 영향도
+
 - **shared 패키지 수정** → 모든 앱 재빌드 필요
 - **core 패키지 수정** → api, batch 앱 재빌드 필요
 - **개별 앱 수정** → 해당 앱만 재빌드
 
 ### 자주 발생하는 문제 해결
+
 ```bash
 # "Module not found @fortem/shared" 에러
 pnpm build:shared && pnpm build:core
@@ -166,6 +184,7 @@ find . -name "tsconfig.tsbuildinfo" -delete
 ## 🧪 테스트 & 검증
 
 ### 커밋 전 체크리스트
+
 ```bash
 pnpm build                          # 빌드 성공 확인
 
@@ -205,9 +224,11 @@ yarn contracts:build   # 컴파일 검증
 5. **커밋 컨벤션을 반드시 지켜주세요**
 
 ============== Deprecated Start ==============
+
 ## 🌐 스마트 컨트랙트 개발 & 배포
 
 ### 컨트랙트 개발 플로우
+
 ```bash
 # 1. 컨트랙트 코드 작성 (contracts/sources/)
 # 2. 테스트 실행
@@ -223,6 +244,7 @@ git commit -m "feat: add new contract functionality"
 ### 환경별 배포
 
 #### 테스트넷 배포
+
 ```bash
 # 기본 테스트넷 배포
 yarn contracts:deploy
@@ -234,6 +256,7 @@ yarn contracts:switch:testnet
 ```
 
 #### 메인넷 배포
+
 ```bash
 # 메인넷 배포 (의존성 검증 포함)
 yarn contracts:deploy:mainnet
@@ -243,6 +266,7 @@ yarn contracts:switch:mainnet
 ```
 
 #### 고급 배포 옵션
+
 ```bash
 # 커스텀 가스 예산으로 배포
 cd contracts && ./deploy.sh -e testnet -g 50000000
@@ -255,8 +279,9 @@ cd contracts && ./deploy.sh -h
 ```
 
 ### 배포 후 중요 작업
+
 1. **패키지 ID 기록**: 배포 후 나오는 Package ID를 반드시 저장
 2. **팀 공유**: 새로운 컨트랙트 주소를 팀원들과 공유
 3. **환경 설정 업데이트**: 프론트엔드/백엔드에서 새 컨트랙트 주소 사용
 4. **트랜잭션 확인**: [Sui Explorer](https://suiexplorer.com)에서 배포 트랜잭션 확인
-============== Deprecated End ==============
+   ============== Deprecated End ==============

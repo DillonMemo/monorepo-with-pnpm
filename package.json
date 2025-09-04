@@ -10,7 +10,7 @@
     "dev": "pnpm build:shared && concurrently \"pnpm dev:api\" \"pnpm dev:web\"",
     "dev:api": "pnpm --filter api start:dev",
     "dev:web": "pnpm --filter web dev",
-    "lint": "eslint .",
+    "prepare": "husky",
     "format": "prettier --write \"**/*.{js,ts,tsx,json,md}\""
   },
   "author": "sevenlinelabs",
@@ -30,8 +30,11 @@
     "concurrently": "^9.1.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
+    "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "typescript": "^5.8.2"
   },
