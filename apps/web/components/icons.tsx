@@ -1,4 +1,4 @@
-import { LucideIcon } from "lucide-react"
+import { LucideIcon } from 'lucide-react'
 
 export type Icon = LucideIcon
 
@@ -9,7 +9,7 @@ interface IconProps {
 }
 
 export const Icons = {
-  home: ({ width = 24, height = 24, fill = "#A3A3A3" }: IconProps = {}) => (
+  home: ({ width = 24, height = 24, fill = '#A3A3A3' }: IconProps = {}) => (
     <svg
       width={width}
       height={height}
@@ -23,11 +23,7 @@ export const Icons = {
       />
     </svg>
   ),
-  tournament: ({
-    width = 24,
-    height = 24,
-    fill = "#A3A3A3",
-  }: IconProps = {}) => (
+  tournament: ({ width = 24, height = 24, fill = '#A3A3A3' }: IconProps = {}) => (
     <svg
       width={width}
       height={height}
@@ -41,7 +37,7 @@ export const Icons = {
       />
     </svg>
   ),
-  game: ({ width = 24, height = 24, fill = "#A3A3A3" }: IconProps = {}) => (
+  game: ({ width = 24, height = 24, fill = '#A3A3A3' }: IconProps = {}) => (
     <svg
       width={width}
       height={height}
@@ -55,7 +51,7 @@ export const Icons = {
       />
     </svg>
   ),
-  earn: ({ width = 24, height = 24, fill = "#A3A3A3" }: IconProps = {}) => (
+  earn: ({ width = 24, height = 24, fill = '#A3A3A3' }: IconProps = {}) => (
     <svg
       width={width}
       height={height}
@@ -69,7 +65,7 @@ export const Icons = {
       />
     </svg>
   ),
-  chat: ({ width = 24, height = 24, fill = "#A3A3A3" }: IconProps = {}) => (
+  chat: ({ width = 24, height = 24, fill = '#A3A3A3' }: IconProps = {}) => (
     <svg
       width={width}
       height={height}

@@ -44,7 +44,8 @@ export default function GNB() {
                     <a
                       href={item.href}
                       target={item.isExternal ? '_blank' : undefined}
-                      className="relative text-white no-underline text-[14px] font-bold flex items-center h-full px-[8px] w-full whitespace-nowrap transition-all duration-300 hover:after:w-full hover:after:left-0 after:content-[''] after:absolute after:bg-[#ccb3ff] after:rounded after:h-[32px] after:w-0 after:left-1/2 after:top-1/2 after:-translate-y-1/2 after:transition-[0.2s] after:z-[-1]">
+                      className="relative text-white no-underline text-[14px] font-bold flex items-center h-full px-[8px] w-full whitespace-nowrap transition-all duration-300 hover:after:w-full hover:after:left-0 after:content-[''] after:absolute after:bg-[#ccb3ff] after:rounded after:h-[32px] after:w-0 after:left-1/2 after:top-1/2 after:-translate-y-1/2 after:transition-[0.2s] after:z-[-1]"
+                    >
                       {item.title}
                     </a>
                   </li>
@@ -52,7 +53,8 @@ export default function GNB() {
                 <li className="relative h-full">
                   <button
                     onClick={togglePlusMenu}
-                    className="bg-transparent border-none text-white text-[14px] font-bold cursor-pointer p-0 flex items-center h-full px-[8px] w-full whitespace-nowrap transition-all duration-300 relative">
+                    className="bg-transparent border-none text-white text-[14px] font-bold cursor-pointer p-0 flex items-center h-full px-[8px] w-full whitespace-nowrap transition-all duration-300 relative"
+                  >
                     <div className="flex space-x-1">
                       <div className="w-1 h-1 bg-white rounded-full"></div>
                       <div className="w-1 h-1 bg-white rounded-full"></div>
@@ -61,13 +63,15 @@ export default function GNB() {
                     <ul
                       className={`absolute top-full right-0 bg-[#1A1A1A] rounded p-2 min-w-[160px] mt-2 shadow-lg list-none ${
                         isPlusMenuOpen ? 'block' : 'hidden'
-                      }`}>
+                      }`}
+                    >
                       {plusMenuItems.map((item, index) => (
                         <li key={index} className="p-0">
                           <a
                             href={item.href}
                             target={item.isExternal ? '_blank' : undefined}
-                            className="block py-1.5 px-3 text-white no-underline text-xs hover:bg-[#333]">
+                            className="block py-1.5 px-3 text-white no-underline text-xs hover:bg-[#333]"
+                          >
                             {item.title}
                           </a>
                         </li>
@@ -82,13 +86,15 @@ export default function GNB() {
           <div className="flex items-center space-x-3">
             <button
               className="bg-transparent border-none p-0 flex items-center justify-center w-8 h-8 rounded hover:bg-[#1A1A1A]"
-              type="button">
+              type="button"
+            >
               <svg
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M21 7V5C21 4.46957 20.7893 3.96086 20.4142 3.58579C20.0391 3.21071 19.5304 3 19 3H5C4.46957 3 3.96086 3.21071 3.58579 3.58579C3.21071 3.96086 3 4.46957 3 5V19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H19C19.5304 21 20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V17M16 12H22M22 12L19 9M22 12L19 15"
                   stroke="white"
@@ -104,7 +110,8 @@ export default function GNB() {
                 style={{
                   backgroundImage:
                     "url('https://imagedelivery.net/4PX95f69rbnt9ok_BnJEAA/18abbb3a-a557-4239-7f43-a93c32b10900/public')",
-                }}>
+                }}
+              >
                 프로필사진
               </div>
               <div className="ml-2 hidden md:block">
@@ -128,7 +135,8 @@ export default function GNB() {
         </Link>
         <Link
           href="/tournament"
-          className="flex-1 flex flex-col items-center justify-center h-full">
+          className="flex-1 flex flex-col items-center justify-center h-full"
+        >
           <div className="flex items-center justify-center">
             <Icons.tournament
               width={24}
@@ -137,7 +145,8 @@ export default function GNB() {
             />
           </div>
           <span
-            className={`text-xs mt-1 ${isActive('/tournament') ? 'text-white' : 'text-[#A3A3A3]'}`}>
+            className={`text-xs mt-1 ${isActive('/tournament') ? 'text-white' : 'text-[#A3A3A3]'}`}
+          >
             Tournament
           </span>
         </Link>
@@ -150,7 +159,8 @@ export default function GNB() {
             />
           </div>
           <span
-            className={`text-xs mt-1 ${isActive('/game-list') ? 'text-white' : 'text-[#A3A3A3]'}`}>
+            className={`text-xs mt-1 ${isActive('/game-list') ? 'text-white' : 'text-[#A3A3A3]'}`}
+          >
             Game
           </span>
         </Link>
@@ -159,13 +169,15 @@ export default function GNB() {
             <Icons.earn width={24} height={24} fill={isActive('/ai-main') ? 'white' : '#A3A3A3'} />
           </div>
           <span
-            className={`text-xs mt-1 ${isActive('/ai-main') ? 'text-white' : 'text-[#A3A3A3]'}`}>
+            className={`text-xs mt-1 ${isActive('/ai-main') ? 'text-white' : 'text-[#A3A3A3]'}`}
+          >
             AI
           </span>
         </Link>
         <div
           className="flex-1 flex flex-col items-center justify-center h-full cursor-pointer"
-          onClick={toggleMenu}>
+          onClick={toggleMenu}
+        >
           <div className="flex flex-col items-center justify-center h-6 w-6 space-y-1">
             <span className="w-5 h-0.5 bg-white block"></span>
             <span className="w-5 h-0.5 bg-white block"></span>
