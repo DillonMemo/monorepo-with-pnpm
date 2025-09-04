@@ -1,5 +1,9 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
+  /**
+   * 허용 타입: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert
+   * 금지: 제목 Pascal/UPPER CASE, 제목 100자 초과, 본문 라인 200자 초과 등
+   */
   rules: {
     'type-enum': [
       2,
