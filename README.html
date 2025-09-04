@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Run</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="run">Run</h1>
+<pre><code class="language-bash"><span class="hljs-comment"># package install</span>
+pnpm i
+
+<span class="hljs-comment"># run develop</span>
+pnpm dev
+
+<span class="hljs-comment"># package audit</span>
+pnpm audit
+
+<span class="hljs-comment"># workspace outdated</span>
+<span class="hljs-built_in">cd</span> /apps/api || <span class="hljs-built_in">cd</span> /apps/web &amp;&amp; pnpm outdated
+</code></pre>
+<h1 id="fortem">Fortem</h1>
+<p>Sui 블록체인 기반 분산 애플리케이션 (DApp) - 모노레포 구조</p>
+<h2 id="️-프로젝트-구조">🏗️ 프로젝트 구조</h2>
+<pre><code>fortem/
+├── apps/                   # 애플리케이션들
+│   ├── api/               # Backend API 서버 (NestJS)
+│   └── web/               # Frontend 웹앱 (Next.js)
+├── packages/              # 공유 라이브러리
+│   ├── core/             # DB, 엔티티, 공통 모듈
+│   └── shared/           # 타입, 상수, 유틸리티
+└── 설정 파일들...
+</code></pre>
+<h2 id="-빠른-시작">🚀 빠른 시작</h2>
+<h3 id="개발-환경-설정">개발 환경 설정</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># 1. 저장소 클론</span>
+git <span class="hljs-built_in">clone</span> https://github.com/DillonMemo/monorepo-with-pnpm
+<span class="hljs-built_in">cd</span> monorepo-with-pnpm
+
+<span class="hljs-comment"># 2. 의존성 설치</span>
+pnpm install
+
+<span class="hljs-comment"># 3. 개발 서버 실행 (API + Web)</span>
+pnpm dev
+</code></pre>
+<h3 id="개별-서비스-실행">개별 서비스 실행</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># API 서버만 실행</span>
+pnpm dev:api
+
+<span class="hljs-comment"># 웹 앱만 실행</span>
+pnpm dev:web
+
+<span class="hljs-comment"># 배치 서버 실행</span>
+pnpm dev:batch
+</code></pre>
+<h2 id="-빌드--배포">🔧 빌드 &amp; 배포</h2>
+<h3 id="빌드-순서-중요">빌드 순서 (중요!)</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># 전체 빌드 (올바른 순서로 자동 실행)</span>
+pnpm build
+
+<span class="hljs-comment"># 단계별 빌드</span>
+pnpm build:shared    <span class="hljs-comment"># 1. shared 패키지 먼저</span>
+~~pnpm build:core      <span class="hljs-comment"># 2. core 패키지~~</span>
+pnpm build:api       <span class="hljs-comment"># 3. API 서버</span>
+pnpm build:web       <span class="hljs-comment"># 4. 웹 앱</span>
+</code></pre>
+<h2 id="-워크스페이스-의존성-관리">📦 워크스페이스 의존성 관리</h2>
+<h3 id="-올바른-패키지-설치">✅ 올바른 패키지 설치</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># 루트에서 워크스페이스 단위로 설치</span>
+yarn workspace @fortem/api add package-name
+yarn workspace @fortem/web add package-name
+yarn workspace @fortem/shared add -D dev-package
+
+<span class="hljs-comment"># 공통 의존성은 루트에 추가</span>
+yarn add package-name
+</code></pre>
+<h3 id="-하지-말아야-할-것">❌ 하지 말아야 할 것</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># 개별 앱에서 직접 설치 금지</span>
+<span class="hljs-built_in">cd</span> apps/api &amp;&amp; yarn add package-name  <span class="hljs-comment"># ❌</span>
+</code></pre>
+<h2 id="-git-워크플로우--커밋-컨벤션">🔄 Git 워크플로우 &amp; 커밋 컨벤션</h2>
+<h3 id="브랜치-생성--개발-시작">브랜치 생성 &amp; 개발 시작</h3>
+<pre><code class="language-bash">git checkout main
+git pull origin main
+git checkout -b feature/your-feature-name
+</code></pre>
+<h3 id="conventional-commits">Conventional Commits</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># 커밋 타입</span>
+feat:     ✨ 새로운 기능
+fix:      🐛 버그 수정
+docs:     📚 문서 수정
+style:    💄 코드 포맷팅
+refactor: ♻️ 리팩토링
+<span class="hljs-built_in">test</span>:     🧪 테스트 추가/수정
+chore:    🔧 빌드, 패키지 매니저 등
+perf:     ⚡ 성능 개선
+ci:       👷 CI/CD 관련
+build:    🏗️ 빌드 시스템 관련
+revert:   ⏪ 이전 커밋 되돌리기
+
+<span class="hljs-comment"># 예시</span>
+git commit -m <span class="hljs-string">&quot;feat: add user authentication module&quot;</span>
+git commit -m <span class="hljs-string">&quot;fix: resolve memory leak in data processing&quot;</span>
+git commit -m <span class="hljs-string">&quot;docs: update API documentation&quot;</span>
+</code></pre>
+<h3 id="릴리즈-생성">릴리즈 생성</h3>
+<pre><code class="language-bash">yarn release
+</code></pre>
+<p>자동으로 실행되는 과정:</p>
+<ul>
+<li>Conventional Commits 기반 버전 계산</li>
+<li><a href="http://CHANGELOG.html">CHANGELOG.md</a> 자동 생성/업데이트</li>
+<li>Git 태그 생성 (v0.1.2 형태)</li>
+<li>GitHub Release 생성</li>
+<li>모든 package.json 버전 동기화</li>
+</ul>
+<h2 id="-스마트-컨트랙트-개발--배포">🌐 스마트 컨트랙트 개발 &amp; 배포</h2>
+<h3 id="컨트랙트-개발-플로우">컨트랙트 개발 플로우</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># 1. 컨트랙트 코드 작성 (contracts/sources/)</span>
+<span class="hljs-comment"># 2. 테스트 실행</span>
+yarn contracts:<span class="hljs-built_in">test</span>
+
+<span class="hljs-comment"># 3. 빌드 확인</span>
+yarn contracts:build
+
+<span class="hljs-comment"># 4. 커밋</span>
+git commit -m <span class="hljs-string">&quot;feat: add new contract functionality&quot;</span>
+</code></pre>
+<h3 id="환경별-배포">환경별 배포</h3>
+<h4 id="테스트넷-배포">테스트넷 배포</h4>
+<pre><code class="language-bash"><span class="hljs-comment"># 기본 테스트넷 배포</span>
+yarn contracts:deploy
+<span class="hljs-comment"># 또는</span>
+yarn contracts:deploy:testnet
+
+<span class="hljs-comment"># 환경 스위치만</span>
+yarn contracts:switch:testnet
+</code></pre>
+<h4 id="메인넷-배포">메인넷 배포</h4>
+<pre><code class="language-bash"><span class="hljs-comment"># 메인넷 배포 (의존성 검증 포함)</span>
+yarn contracts:deploy:mainnet
+
+<span class="hljs-comment"># 환경 스위치만</span>
+yarn contracts:switch:mainnet
+</code></pre>
+<h4 id="고급-배포-옵션">고급 배포 옵션</h4>
+<pre><code class="language-bash"><span class="hljs-comment"># 커스텀 가스 예산으로 배포</span>
+<span class="hljs-built_in">cd</span> contracts &amp;&amp; ./deploy.sh -e testnet -g 50000000
+
+<span class="hljs-comment"># 의존성 검증과 함께 배포</span>
+<span class="hljs-built_in">cd</span> contracts &amp;&amp; ./deploy.sh -e mainnet -v
+
+<span class="hljs-comment"># 도움말</span>
+<span class="hljs-built_in">cd</span> contracts &amp;&amp; ./deploy.sh -h
+</code></pre>
+<h3 id="배포-후-중요-작업">배포 후 중요 작업</h3>
+<ol>
+<li><strong>패키지 ID 기록</strong>: 배포 후 나오는 Package ID를 반드시 저장</li>
+<li><strong>팀 공유</strong>: 새로운 컨트랙트 주소를 팀원들과 공유</li>
+<li><strong>환경 설정 업데이트</strong>: 프론트엔드/백엔드에서 새 컨트랙트 주소 사용</li>
+<li><strong>트랜잭션 확인</strong>: <a href="https://suiexplorer.com">Sui Explorer</a>에서 배포 트랜잭션 확인</li>
+</ol>
+<h2 id="️-개발-시-주의사항">🛠️ 개발 시 주의사항</h2>
+<h3 id="빌드-순서-준수">빌드 순서 준수</h3>
+<ul>
+<li><code>shared</code> → <code>core</code> → <code>apps</code> 순서로 빌드해야 함</li>
+<li><code>yarn dev</code> 명령어가 올바른 순서로 자동 실행</li>
+</ul>
+<h3 id="패키지-간-import-규칙">패키지 간 Import 규칙</h3>
+<pre><code class="language-typescript"><span class="hljs-comment">// ✅ 올바른 import (workspace 이름 사용)</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">SomeType</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@fortem/shared&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">DatabaseModule</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@fortem/core&#x27;</span>;
+
+<span class="hljs-comment">// ❌ 상대 경로 사용 금지</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">SomeType</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../packages/shared/src&#x27;</span>;
+</code></pre>
+<h3 id="코드-변경-시-영향도">코드 변경 시 영향도</h3>
+<ul>
+<li><strong>shared 패키지 수정</strong> → 모든 앱 재빌드 필요</li>
+<li><strong>core 패키지 수정</strong> → api, batch 앱 재빌드 필요</li>
+<li><strong>개별 앱 수정</strong> → 해당 앱만 재빌드</li>
+</ul>
+<h3 id="자주-발생하는-문제-해결">자주 발생하는 문제 해결</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># &quot;Module not found @fortem/shared&quot; 에러</span>
+yarn build:shared &amp;&amp; yarn build:core
+
+<span class="hljs-comment"># 의존성 충돌 시</span>
+<span class="hljs-built_in">rm</span> -rf node_modules yarn.lock
+yarn install
+
+<span class="hljs-comment"># TypeScript 캐시 문제 시</span>
+find . -name <span class="hljs-string">&quot;tsconfig.tsbuildinfo&quot;</span> -delete
+</code></pre>
+<h2 id="-테스트--검증">🧪 테스트 &amp; 검증</h2>
+<h3 id="커밋-전-체크리스트">커밋 전 체크리스트</h3>
+<pre><code class="language-bash">yarn build                          <span class="hljs-comment"># 빌드 성공 확인</span>
+
+<span class="hljs-comment"># 개별 앱 린트 &amp; 테스트</span>
+yarn workspace @fortem/api lint     <span class="hljs-comment"># API 린트 검사</span>
+yarn workspace @fortem/api <span class="hljs-built_in">test</span>     <span class="hljs-comment"># API 테스트 실행</span>
+yarn workspace @fortem/batch lint   <span class="hljs-comment"># Batch 린트 검사</span>
+yarn workspace @fortem/batch <span class="hljs-built_in">test</span>   <span class="hljs-comment"># Batch 테스트 실행</span>
+yarn workspace @fortem/web lint     <span class="hljs-comment"># Web 린트 검사</span>
+</code></pre>
+<h3 id="컨트랙트-테스트">컨트랙트 테스트</h3>
+<pre><code class="language-bash">yarn contracts:<span class="hljs-built_in">test</span>     <span class="hljs-comment"># Move 테스트 실행</span>
+yarn contracts:build   <span class="hljs-comment"># 컴파일 검증</span>
+</code></pre>
+<h2 id="-추가-리소스">📚 추가 리소스</h2>
+<ul>
+<li><a href="https://docs.sui.io/">Sui Documentation</a></li>
+<li><a href="https://move-language.github.io/move/">Move Language Book</a></li>
+<li><a href="https://www.conventionalcommits.org/">Conventional Commits</a></li>
+<li><a href="https://classic.yarnpkg.com/docs/workspaces/">Yarn Workspaces</a></li>
+</ul>
+<h2 id="-관련-링크">🔗 관련 링크</h2>
+<ul>
+<li><strong>Testnet Explorer</strong>: <a href="https://suiexplorer.com/?network=testnet">https://suiexplorer.com/?network=testnet</a></li>
+<li><strong>Mainnet Explorer</strong>: <a href="https://suiexplorer.com/?network=mainnet">https://suiexplorer.com/?network=mainnet</a></li>
+<li><strong>Sui Faucet</strong>: <a href="https://discord.com/invite/sui">https://discord.com/invite/sui</a></li>
+</ul>
+<hr>
+<h2 id="팀원들에게-중요한-알림-">팀원들에게 중요한 알림 🚨</h2>
+<ol>
+<li><strong>절대 개별 앱에서 직접 패키지 설치하지 마세요</strong></li>
+<li><strong>빌드 순서를 무시하고 개별 실행하지 마세요</strong></li>
+<li><strong>메인넷 배포 전에는 반드시 테스트넷에서 검증하세요</strong></li>
+<li><strong>컨트랙트 배포 후 패키지 ID를 잊지 말고 기록하세요</strong></li>
+<li><strong>커밋 컨벤션을 반드시 지켜주세요</strong></li>
+</ol>
+
+            
+            
+        </body>
+        </html>

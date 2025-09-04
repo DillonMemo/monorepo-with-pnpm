@@ -4,7 +4,6 @@ module.exports = {
   bracketSpacing: true,
   endOfLine: "lf",
   semi: false,
-  singleQuote: false,
   tabWidth: 2,
   trailingComma: "es5",
   importOrder: [
@@ -31,4 +30,10 @@ module.exports = {
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
   importOrderMergeDuplicateImports: true,
   importOrderCombineTypeAndValueImports: true,
-}
+
+  printWidth: 100,
+  useTabs: false,
+  jsxBracketSameLine: true,
+  singleQuote: true,
+  quoteProps: "consistent",
+};
