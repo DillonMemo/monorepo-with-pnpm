@@ -18,12 +18,13 @@
     "packages": [
       "apps/*",
       "packages/*"
-    ],
-    "resolutions": {
-      "react": "19.0.0",
-      "react-dom": "19.0.0",
-      "typescript": "^5.8.2"
-    }
+    ]
+  },
+  "overrides": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "typescript": "^5.8.2",
+    "prettier": "^3.5.3"
   },
   "dependencies": {
     "concurrently": "^9.1.2"
@@ -35,6 +36,7 @@
     "typescript": "^5.8.2"
   },
   "//": {
+    "overrides": "트랜스티브(간접) 의존성 버전을 강제로 지정해 전체 워크스페이스에서 동일 버전을 쓰도록 함.",
     "start-readme": "pnpm install && pnpm build:shared && pnpm dev"
   }
 }
