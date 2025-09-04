@@ -1,5 +1,7 @@
 # Run
 
+pnpm 모노레포 환경 베이직 예제
+
 ```bash
 # package install
 pnpm i
@@ -13,10 +15,6 @@ pnpm audit
 # workspace outdated
 cd /apps/api || cd /apps/web && pnpm outdated
 ```
-
-# Fortem
-
-Sui 블록체인 기반 분산 애플리케이션 (DApp) - 모노레포 구조
 
 ## 🏗️ 프로젝트 구조
 
